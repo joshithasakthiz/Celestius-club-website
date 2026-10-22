@@ -1,0 +1,6 @@
+{
+  "name": "Celestius Student Club",
+  "description": "Official homepage of Celestius Student Club at Chennai Institute of Technology - Innovate, Build, Collaborate.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
