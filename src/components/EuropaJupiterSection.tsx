@@ -202,12 +202,12 @@ export const EuropaJupiterSection: React.FC<EuropaJupiterSectionProps> = ({
         <div className="space-y-3 sm:space-y-4 font-jakarta text-base sm:text-lg md:text-xl font-normal leading-relaxed sm:leading-loose">
           {/* Line 1: In icy blue colour */}
           <p className="text-icy-blue">
-            Europa: Jupiters second moon hides an ocean beneath its icy surface...
+            Europa: Jupiter&apos;s second moon hides an ocean beneath its icy surface...
           </p>
 
           {/* Line 2: In white font colour with correct spelling "potential" */}
           <p className="text-white">
-            you never know your hidden potential.
+            You never know your hidden potential.
           </p>
         </div>
 

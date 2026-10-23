@@ -125,7 +125,7 @@ export const RegistrationPage: React.FC<RegistrationPageProps> = ({
       id: 'event-4',
       name: 'CyberSiege: CTF & Defensive Security Quest',
       category: 'Cybersecurity Challenge',
-      teamFormat: 'Team Tournament (1–3 Members)',
+      teamFormat: 'Team Tournament (2–3 Members)',
       badgeColor: 'border-pink-500/40 text-pink-300 bg-pink-950/40',
       icon: ShieldCheck,
     },
@@ -202,9 +202,15 @@ export const RegistrationPage: React.FC<RegistrationPageProps> = ({
         errs.teammate1Email = 'Valid college email is required for your workshop partner';
       }
     } else if (selectedEventId === 'event-4') {
-      // CyberSiege CTF
+      // CyberSiege CTF (2–3 Members)
       if (!teamName.trim()) {
         errs.teamName = 'Squad / Team name is required for CyberSiege CTF';
+      }
+      if (!teammate1Name.trim()) {
+        errs.teammate1Name = 'At least 1 teammate (Member 2) is required for 2–3 member team tournament';
+      }
+      if (!teammate1Email.trim() || !emailRegex.test(teammate1Email.trim())) {
+        errs.teammate1Email = 'Valid college email is required for Member 2';
       }
     }
 
@@ -798,17 +804,17 @@ Official Portal : Celestius Technical Club CIT
                     <option value="" disabled className="bg-slate-950">
                       Select Current Academic Year
                     </option>
-                    <option value="1st Year (Freshman)" className="bg-slate-950">
-                      1st Year (Freshman)
+                    <option value="1st Year" className="bg-slate-950">
+                      1st Year
                     </option>
-                    <option value="2nd Year (Sophomore)" className="bg-slate-950">
-                      2nd Year (Sophomore)
+                    <option value="2nd Year" className="bg-slate-950">
+                      2nd Year
                     </option>
-                    <option value="3rd Year (Junior)" className="bg-slate-950">
-                      3rd Year (Junior)
+                    <option value="3rd Year" className="bg-slate-950">
+                      3rd Year
                     </option>
-                    <option value="4th Year (Senior)" className="bg-slate-950">
-                      4th Year (Senior)
+                    <option value="4th Year" className="bg-slate-950">
+                      4th Year
                     </option>
                     <option value="Postgraduate / Masters" className="bg-slate-950">
                       Postgraduate / Masters
@@ -866,7 +872,7 @@ Official Portal : Celestius Technical Club CIT
                 {selectedEventId === 'event-1'
                   ? 'CodeNexus requires teams of 2 to 4 developers. Please provide your team name and teammate details.'
                   : selectedEventId === 'event-4'
-                    ? 'CyberSiege permits solo or team squads of up to 3 cybersecurity defenders.'
+                    ? 'CyberSiege requires teams of 2 to 3 cybersecurity defenders. Please provide your squad name and teammate details.'
                     : 'GenAI Forge can be attended individually or as a collaborative duo.'}
               </p>
 
@@ -938,7 +944,9 @@ Official Portal : Celestius Technical Club CIT
                   <div className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80">
                     <span className="text-xs font-mono uppercase text-pink-300 mb-2 block font-semibold">
                       {selectedEventId === 'event-3' ? 'Lab Partner Details' : 'Teammate 1 (Member 2)'}{' '}
-                      {selectedEventId === 'event-1' && <span className="text-pink-400">*</span>}
+                      {(selectedEventId === 'event-1' || selectedEventId === 'event-4') && (
+                        <span className="text-pink-400">*</span>
+                      )}
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>

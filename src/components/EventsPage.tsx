@@ -224,9 +224,8 @@ export const EventsPage: React.FC<EventsPageProps> = ({ onBackToHome, onViewEven
                     </div>
                   </div>
 
-                  {/* Card Footer: Date and venue removed */}
-                  <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-outfit pointer-events-none">
-                    <span className="text-cyan-300/80 font-medium">Schedule to be announced</span>
+                  {/* Card Footer */}
+                  <div className="pt-4 border-t border-slate-800/80 flex items-center justify-end text-xs font-outfit pointer-events-none">
                     <span className="text-slate-400 font-mono text-[11px]">
                       {event.number} of 04
                     </span>

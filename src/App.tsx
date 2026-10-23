@@ -27,11 +27,15 @@ export default function App() {
     setIsSwirling(true);
   };
 
-  // Called when black hole swirl finishes (after 3.0s)
+  // Called at peak dark horizon: silently swap page & reset scroll
+  const handleTransitionMidpoint = () => {
+    setCurrentPage(targetPage);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  // Called when black hole swirl finishes smoothly revealing the next page
   const handleTransitionComplete = () => {
     setIsSwirling(false);
-    setCurrentPage(targetPage);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -39,8 +43,13 @@ export default function App() {
       {/* Background: Space with dark navy blue & purple mixed color and twinkling stars */}
       <StarfieldBackground />
 
-      {/* Reusable Black Hole Swirl Transition Overlay */}
-      {isSwirling && <BlackHoleTransition onComplete={handleTransitionComplete} />}
+      {/* Reusable Black Hole Gravitational Swirl Transition Overlay */}
+      {isSwirling && (
+        <BlackHoleTransition
+          onMidpoint={handleTransitionMidpoint}
+          onComplete={handleTransitionComplete}
+        />
+      )}
 
       {/* Page Routing */}
       {currentPage === 'home' && (
